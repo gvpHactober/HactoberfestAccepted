@@ -1,5 +1,9 @@
 Below are the steps to follow to contribute to this project:
 
+<h1>We will be accepting PR till 11 p.m on 26.10.2021 </h1>
+
+<h2> Star the Repo is mandatory</h2>
+
 1. Fork this repository.
 
 2. Clone your forked copy of the project.
