@@ -71,6 +71,8 @@ void nqueen(int n)
 int main()
 {
 	int n=4;
+	cout<<"Enter number of queens 'n' \n";
+	cin>>n;
 	nqueen(n);
 	return 0;
 }
