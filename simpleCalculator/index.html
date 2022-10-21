@@ -1,40 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <title> standard calculator </title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css" />
-</head> 
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="Calci.css">
+</head>
+<script>
+function clearScreen() {
+        document.getElementById("result").value = "";
+    }
+function textview(value) {
+        document.getElementById("result").value += value;
+    }
+function calculate() {
+        var p = document.getElementById("result").value;
+        document.getElementById("result").value =eval(p);
+    }
+
+function returnback() {
+    var value = document.getElementById("result").value;
+    document.getElementById("result").value = value.substr(0, value.length - 1);
+}
+function round(){
+    var p = document.getElementById("result").value;
+    document.getElementById("result").value = Math.round(p);
+}
+function sqrt(){
+    var p = document.getElementById("result").value;
+    document.getElementById("result").value = Math.sqrt(p);  
+}
+function reciprocal(){
+    var p = document.getElementById("result").value;
+    document.getElementById("result").value = (1/p); 
+}
+</script>
 <body>
-    <marquee>
-        <h2> <em>simple calculator</em> </h2>
-    </marquee>
-    <div class="container">
-        <fieldset id="container">
-            <form name="calculator">
-                <input type="text" id="display" name="display" readonly>
-                <input class="button digits" type="button" value="7" onclick="calculator.display.value += '7'">
-                <input class="button digits" type="button" value="8" onclick="calculator.display.value += '8'">
-                <input class="button digits" type="button" value="9" onclick="calculator.display.value += '9'">
-                <input class="button mathButtons" type="button" value="+" onclick="calculator.display.value += ' + '">
-                <br>
-                <input class="button digits" type="button" value="4" onclick="calculator.display.value += '4'">
-                <input class="button digits" type="button" value="5" onclick="calculator.display.value += '5'">
-                <input class="button digits" type="button" value="6" onclick="calculator.display.value += '6'">
-                <input class="button mathButtons" type="button" value="-" onclick="calculator.display.value += ' - '">
-                <br>
-                <input class="button digits" type="button" value="1" onclick="calculator.display.value += '1'">
-                <input class="button digits" type="button" value="2" onclick="calculator.display.value += '2'">
-                <input class="button digits" type="button" value="3" onclick="calculator.display.value += '3'">
-                <input class="button mathButtons" type="button" value="x" onclick="calculator.display.value += ' * '">
-                <br>
-                <input id="clearButton" class="button" type="button" value="C" onclick="calculator.display.value = ''">
-                <input class="button digits" type="button" value="0" onclick="calculator.display.value += '0'">
-                <input class="button mathButtons" type="button" value="="
-                    onclick="calculator.display.value = eval(calculator.display.value)">
-                <input class="button mathButtons" type="button" value="/" onclick="calculator.display.value += ' / '">
-            </form>
-        </fieldset>
-    </div>
+    <div class="box">
+        <center>
+            <table>
+                <tr>
+                <td colspan="4"><input class="display" type="text" id="result">
+                </td>
+                </tr>
+
+                <tr>
+                    <td><input class="end" type="button" value="C" onclick="clearScreen()" style="padding-left:30px;padding-right:30px">
+                    </td>
+                    <td><input class="end" type="button" value="<-" onclick="returnback()"></td>
+                    <td><input class="end" type="button" value="%" onclick="textview('%')"></td>
+                    <td ><input class="endl" type="button" value="/" onclick="textview('/')"></td>
+                </tr>
+
+                <tr>
+                    <td><input class="endb" type="button" value="^" onclick="textview('^')"></td>
+                    <td><input class="endb" type="button" value="sqrt" onclick="sqrt()"></td>
+                    <td><input class="endb" type="button" value="*" onclick="textview('*')"></td>
+                    <td ><input class="endl" type="button" value="-" onclick="textview('-')"></td>
+                </tr>
+
+                <tr>
+                    
+                    <td><input class="endb" type="button" value="7" onclick="textview('7')"></td>
+                    <td class="buts"><input class="endb"type="button" value="8" onclick="textview('8')"></td>
+                    <td><input class="endb" type="button" value="9" onclick="textview('9')"></td>
+                    <td ><input class="endl" type="button" value="+" onclick="textview('+')"></td>
+                </tr>
+
+                <tr>
+                    <td><input class="endb"  type="button" value="4" onclick="textview('4')"></td>
+                    <td><input class="endb" type="button" value="5" onclick="textview('5')"></td>
+                    <td class="buts"><input class="endb" type="button" value="6" onclick="textview('6')"></td>
+                    <td ><input class="endl" type="button" value="round" onclick="round()"></td>
+                </tr>
+
+                <tr>
+                    <td><input class="endb" type="button" value="1" onclick="textview('1')"></td>
+                    <td><input class="endb" type="button" value="2" onclick="textview('2')"></td>
+                    <td><input class="endb" type="button" value="3" onclick="textview('3')"></td>
+                    <td ><input class="endl" type="button" value="1/x" onclick="reciprocal()"></td>
+                </tr>
+
+                <tr>
+                    
+                    <td colspan="2"><input class="endb" type="button" value="0" onclick="textview('0')"></td>
+                    <td><input class="endb" type="button" value="." onclick="textview('.')"></td>
+                    <td><input class="endl" type="button" value="=" onclick="calculate()"></td>
+                </tr>
+            </table>
+        </center>
+
+</body>
+
 </html>
